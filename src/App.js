@@ -6,20 +6,20 @@ import BookCase from './components/BookCase'
 import Search from './components/Search'
 
 export default class BooksApp extends React.Component {
-  state = {   
-    
+  state = {
+
   }
-		
+
 	componentDidMount() {
     	BooksAPI.getAll().then((books) => {
           this.refreshBooks()
           this.setState({books})
-        });  
+        });
     }
 
 	refreshBooks = (books) => {
-    	BooksAPI.getAll().then((list) => {  
-    		this.setState({        
+    	BooksAPI.getAll().then((list) => {
+    		this.setState({
           		books: (list)
         	})
         })
@@ -33,7 +33,7 @@ export default class BooksApp extends React.Component {
             if (books.length) {
            		books[0].shelf = shelf
             }else{
-             	newBooks.push(book); 
+             	newBooks.push(book);
             }
        		this.setState({books: newBooks})
      	})
